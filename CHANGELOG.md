@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.1.1...v1.1.2) (2022-12-28)
+
+
+### Bug Fixes
+
+* add a change ([142b4da](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/commit/142b4da0186a4806c4ebad8faf12120edceb3428))
+
 ## [1.1.1](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.1.0...v1.1.1) (2022-12-28)
 
 
