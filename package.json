@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "semantic-release": "^19.0.5"
+  },
+  "name": "another-dummy-project-for-workflows",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieranm-lvh/another-dummy-project-for-workflows.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kieranm-lvh/another-dummy-project-for-workflows/issues"
+  },
+  "homepage": "https://github.com/kieranm-lvh/another-dummy-project-for-workflows#readme"
+}
