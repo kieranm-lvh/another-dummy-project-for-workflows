@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.1.2...v1.2.0) (2023-01-03)
+
+
+### Features
+
+* conventional-pr ([9a44f63](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/commit/9a44f635d2992873f2626a3bbaae043638b5b346))
+
 ## [1.1.2](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.1.1...v1.1.2) (2022-12-28)
 
 
