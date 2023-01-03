@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.2.0...v1.2.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* conventional ([cb34165](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/commit/cb34165f98d646cb91036004f702745fcace2d3e))
+
 # [1.2.0](https://github.com/kieranm-lvh/another-dummy-project-for-workflows/compare/v1.1.2...v1.2.0) (2023-01-03)
 
 
