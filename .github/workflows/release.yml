@@ -51,6 +51,6 @@ jobs:
 
       - name: Test
         id: Test
-        if : $SLACK_SHOULD_NOTIFY
+        if : SLACK_SHOULD_NOTIFY="true"
         run : |
           echo "Hello world"
