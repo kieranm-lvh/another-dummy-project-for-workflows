@@ -16,17 +16,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
+
       - name: Install dependencies
         run: npm ci
+
       - name: Release
         id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+
       - name: Slack message prepare
         id: slack-message
         run: |
@@ -49,8 +53,11 @@ jobs:
           LAST_RELEASE_VERSION: ${{ steps.release.outputs.last_release_version }}
           NEW_RELEASE_VERSION: ${{ steps.release.outputs.new_release_version }}
 
-      - name: Test
-        id: Test
-        if : SLACK_SHOULD_NOTIFY="true"
-        run : |
-          echo "Hello world"
+      - name: echo
+        run: |
+          echo $SLACK_SHOULD_NOTIFY
+
+      - name: if check
+        if :  ${{ env.SLACK_SHOULD_NOTIFY }} 
+        run: | 
+          echo "If is true"

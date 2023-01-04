@@ -45,15 +45,3 @@ jobs:
               echo "SLACK_SHOULD_NOTIFY=true" >> $GITHUB_ENV
             fi
           fi
-
-      - name: echo
-        run: |
-          echo $SLACK_SHOULD_NOTIFY
-
-      - name: if check
-        if :  ${{ env.SLACK_SHOULD_NOTIFY }} 
-        run: | 
-          echo "If is true"
-
-
-      
