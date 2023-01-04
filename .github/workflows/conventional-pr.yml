@@ -51,7 +51,7 @@ jobs:
           echo $SLACK_SHOULD_NOTIFY
 
       - name: if check
-        if : $SLACK_SHOULD_NOTIFY="true"
+        if :  ${{ env.SLACK_SHOULD_NOTIFY }} 
         run: | 
           echo "If is true"
 
