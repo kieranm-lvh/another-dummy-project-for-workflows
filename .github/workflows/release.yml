@@ -26,10 +26,10 @@ jobs:
         run: npm ci
 
       - name: Release
+        uses: cycjimmy/semantic-release-action@v3
         id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
 
       - name: Slack message prepare
         id: slack-message
