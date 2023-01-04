@@ -4,6 +4,9 @@ on:
     branches:
       - master
       - main
+env: 
+  SLACK_SHOULD_NOTIFY: false
+
 jobs:
   release:
     name: Release
@@ -20,14 +23,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Release
+        id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
-      - uses: slackapi/slack-github-action@v1.23.0
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        with:
-          channel-id: '#kieran-workflow-notifications-test-dummy-channel'
-          payload-file-path: "./payload.json"
-          
+      - name: Slack message prepare
+        id: slack-message
+        run: |
+          if [$LAST_RELEASE_VERSION]; then 
+            previous=(`echo $LAST_RELEASE_VERSION | tr '.' ' '`)
+            next=(`echo $NEW_RELEASE_VERSION | tr '.' ' '`)
+            previous_major=${previous[0]}
+            previous_minor=${previous[1]}
+            next_major=${next[0]}
+            next_minor=${next[1]}
+
+            if [[ "$next_major" -gt "$previous_major"  ||  "$next_minor" -gt "$previous_major" ] ]; then
+              SLACK_SHOULD_NOTIFY=true
+            done
+          done
+          fi
+        env: 
+          LAST_RELEASE_VERSION: ${{ steps.release.outputs.last_release_version }}
+          NEW_RELEASE_VERSION: ${{ steps.release.outputs.new_release_version }}
+
+      - name: Test
+        id: Test
+        if : $SLACK_SHOULD_NOTIFY
+        run : |
+          echo "Hello world"
