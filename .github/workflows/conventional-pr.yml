@@ -26,22 +26,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Slack notify prepare
-        id: slack-notify-prepare
-        if: steps.release.outputs.new_release_published == 'true'
-        run: |
-          LAST_RELEASE_VERSION=${{ steps.release.outputs.last_release_version }}
-          NEW_RELEASE_VERSION=${{ steps.release.outputs.new_release_version }}
-          if [[ ! -z LAST_RELEASE_VERSION ]]
-          then
-            last=(`echo $LAST_RELEASE_VERSION | tr '.' ' '`)
-            new=(`echo $NEW_RELEASE_VERSION | tr '.' ' '`)
-            last_major=${last[0]}
-            last_minor=${last[1]}
-            new_major=${new[0]}
-            new_minor=${new[1]}
-            if [[  $new_minor -gt $last_minor || $new_major -gt $last_major ]]
-            then
-              echo "SLACK_SHOULD_NOTIFY=true" >> $GITHUB_ENV
-            fi
-          fi
+      # - name: Slack notify prepare
+      #   id: slack-notify-prepare
+      #   if: steps.release.outputs.new_release_published == 'true'
+      #   run: |
+      #     LAST_RELEASE_VERSION=${{ steps.release.outputs.last_release_version }}
+      #     NEW_RELEASE_VERSION=${{ steps.release.outputs.new_release_version }}
+      #     if [[ ! -z LAST_RELEASE_VERSION ]]
+      #     then
+      #       last=(`echo $LAST_RELEASE_VERSION | tr '.' ' '`)
+      #       new=(`echo $NEW_RELEASE_VERSION | tr '.' ' '`)
+      #       last_major=${last[0]}
+      #       last_minor=${last[1]}
+      #       new_major=${new[0]}
+      #       new_minor=${new[1]}
+      #       if [[  $new_minor -gt $last_minor || $new_major -gt $last_major ]]
+      #       then
+      #         echo "SLACK_SHOULD_NOTIFY=true" >> $GITHUB_ENV
+      #       fi
+      #     fi
